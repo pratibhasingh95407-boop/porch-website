@@ -1,6 +1,23 @@
+import { useState } from "react";
+import { ArrowLeft, Smartphone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 export default function PorchLandingPage() {
+   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white text-gray-800">
+      <div className="px-6 pt-6 md:px-16 lg:px-28">
+  <button
+    onClick={() => navigate(-1)}
+    className="flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold"
+  >
+    <ArrowLeft size={20} />
+    Back
+  </button>
+</div>
+      
+      
       {/* Hero Section */}
       <section className="px-6 py-20 md:px-16 lg:px-28">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -14,9 +31,12 @@ export default function PorchLandingPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-2xl shadow-lg transition">
-                Download App
-              </button>
+              <button
+  onClick={() => setShowPopup(true)}
+  className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-2xl shadow-lg transition"
+>
+  Download App
+</button>
 
               <button className="border border-green-700 text-green-700 hover:bg-green-100 px-6 py-3 rounded-2xl transition">
                 Explore Services
@@ -133,9 +153,12 @@ export default function PorchLandingPage() {
             designed to make everyday living fresher and greener.
           </p>
 
-          <button className="mt-8 bg-white text-green-800 px-8 py-4 rounded-2xl font-semibold shadow-lg hover:scale-105 transition">
-            Get Started
-          </button>
+         <button
+  onClick={() => setShowPopup(true)}
+  className="mt-8 bg-white text-green-800 px-8 py-4 rounded-2xl font-semibold shadow-lg hover:scale-105 transition"
+>
+  Get Started
+</button>
         </div>
       </section>
 
@@ -145,6 +168,45 @@ export default function PorchLandingPage() {
           © 2026 Porch. All rights reserved.
         </p>
       </footer>
+{/* Download Popup */}
+{showPopup && (
+  <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-6">
+    <div className="bg-white max-w-md w-full rounded-[32px] p-10 text-center shadow-2xl relative animate-fadeIn">
+
+      {/* Close Button */}
+      <button
+        onClick={() => setShowPopup(false)}
+        className="absolute top-5 right-5 text-gray-400 hover:text-black text-2xl"
+      >
+        ×
+      </button>
+
+      <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+        <Smartphone className="text-green-700 w-10 h-10" />
+      </div>
+
+      <h2 className="mt-8 text-3xl font-bold text-gray-900">
+        App Coming Soon
+      </h2>
+
+      <p className="mt-6 text-gray-600 leading-8">
+        The PORCH mobile application will officially launch within the next month on Google Play Store and App Store.
+      </p>
+
+      <p className="mt-4 text-gray-500">
+        Stay connected for updates and early access.
+      </p>
+
+      <button
+        onClick={() => setShowPopup(false)}
+        className="mt-8 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-2xl font-semibold transition w-full"
+      >
+        Got It
+      </button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

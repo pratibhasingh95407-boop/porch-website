@@ -109,7 +109,7 @@ export default function UrbonixHomepage() {
         id="home"
         className="relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-green-100"
       >
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
               <Leaf size={16} />
@@ -129,40 +129,23 @@ export default function UrbonixHomepage() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-5">
-              <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl transition flex items-center gap-2">
-                Explore Products
-                <ArrowRight size={18} />
-              </button>
+             <button
+  onClick={() => {
+    document
+      .getElementById("products")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl transition flex items-center gap-2"
+>
+  Explore Products
+  <ArrowRight size={18} />
+</button>
 
               <button className="border border-green-700 text-green-700 hover:bg-green-50 px-8 py-4 rounded-2xl font-semibold transition">
                 Learn More
               </button>
             </div>
-
-            <div className="mt-12 flex gap-10">
-              <div>
-                <h3 className="text-3xl font-bold text-green-800">
-                  10K+
-                </h3>
-                <p className="text-gray-500 mt-1">Users</p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-green-800">
-                  150+
-                </h3>
-                <p className="text-gray-500 mt-1">Partners</p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-green-800">
-                  25+
-                </h3>
-                <p className="text-gray-500 mt-1">Cities</p>
-              </div>
-            </div>
           </div>
-
           <div className="relative">
             <div className="bg-white rounded-[40px] shadow-2xl p-6 border border-green-100">
               <img
@@ -214,7 +197,7 @@ export default function UrbonixHomepage() {
                   </p>
 
                   <button className="mt-8 text-green-700 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-                    Explore Product
+                    Coming soon
                     <ArrowRight size={18} />
                   </button>
                 </div>
@@ -434,17 +417,17 @@ export default function UrbonixHomepage() {
             <div className="mt-6 space-y-5">
               <div className="flex items-center gap-3">
                 <Mail size={18} />
-                info@urbonix.co.in
+                porch@urbonix.co.in
               </div>
 
               <div className="flex items-center gap-3">
                 <Phone size={18} />
-                +91 9876543210
+                +91 7303356994
               </div>
 
               <div className="flex items-center gap-3">
                 <MapPin size={18} />
-                Noida, India
+                GYC Yamuna Noida, India
               </div>
             </div>
           </div>
